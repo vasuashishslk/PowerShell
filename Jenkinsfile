@@ -2,40 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Version') {
             steps {
-                echo 'Building..'
+                sh 'pwsh --version'
             }
         }
-        stage('Test') {
+        stage('helloworld') {
             steps {
-                echo 'Testing..'
+                sh 'pwsh hello.ps1
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-        stage('Deploy to production 1') {
-            steps {
-                echo 'Deploying to prod 1...'
-      
-            }
-        }
-        stage ('Depoly to production 2'){
-            steps{
-              echo 'Depolying to prod 2 ...'
-          }
-        }
-        stage ('Deploy to production 3'){
-            steps{
-                 echo 'Depolying to prod 3 ..'
-                 echo "TimeStamp: ${currentBuild.startTimeInMillis}"
-                 
-                 
-               }
-            }
-            
+        }     
     }
 }
